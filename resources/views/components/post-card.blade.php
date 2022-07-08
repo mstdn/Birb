@@ -83,7 +83,7 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
               ></path>
             </g>
           </svg>
-          12.3 k
+          0
         </div>
         <div
           class="flex-1 flex items-center text-gray-800 dark:text-white text-xs text-gray-400 hover:text-green-400 dark:hover:text-green-400 transition duration-350 ease-in-out"
@@ -99,7 +99,7 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
               ></path>
             </g>
           </svg>
-          14 k
+          0
         </div>
         <div
           class="flex-1 flex items-center text-gray-800 dark:text-white text-xs text-gray-400 hover:text-red-600 dark:hover:text-red-600 transition duration-350 ease-in-out"
@@ -115,7 +115,7 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
               ></path>
             </g>
           </svg>
-          14 k
+          0
         </div>
         <div
           class="flex-1 flex items-center text-gray-800 dark:text-white text-xs text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition duration-350 ease-in-out"

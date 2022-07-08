@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\ViewErrorBag;
 
 class UserController extends Controller
 {
@@ -33,4 +34,11 @@ class UserController extends Controller
         $request->session()->regenerateToken();
         return redirect('/login');
     }
+
+    public function settings(User $user) {
+        return view('settings.index', [
+            'user' => $user
+        ]);
+    }
+
 }

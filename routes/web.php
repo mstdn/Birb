@@ -32,6 +32,7 @@ Route::get('@{user:username}', [UserController::class, 'show']);
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('settings', [UserController::class, 'settings'])->name('settings');
     // Logout
     Route::post('logout', [UserController::class, 'logout'])->name('logout');
 });

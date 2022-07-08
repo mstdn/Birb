@@ -14,7 +14,7 @@
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <h1 class="text-white text-2xl">Login on Shitter</h1>
+                        <h1 class="text-white text-2xl">Login on birb</h1>
                                 <input id="email" type="email" placeholder="Email address" class="w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 
                                 @error('email')

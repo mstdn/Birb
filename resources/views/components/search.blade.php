@@ -22,7 +22,7 @@
       </svg>
     </div>
     <input class="w-full bg-gray-200 dark:bg-dim-400 border-gray-200 dark:border-dim-400 text-gray-500 focus:bg-gray-100 dark:focus:bg-dim-900 focus:outline-none focus:border focus:border-blue-200 font-normal h-9 flex items-center pl-12 text-sm rounded-full border shadow"
-      placeholder="Search birb" name="search"/>
+      placeholder="Search birb" name="search" value="{{ request('search') }}" />
   </div>
   <!-- /Search -->
 </form>

@@ -103,7 +103,7 @@
     </a>
 
     <a
-      href="#"
+      href="/{{ '@' . auth()->user()->username }}"
       class="flex items-center justify-center xl:justify-start text-gray-800 dark:text-white hover:text-blue-400 dark:hover:text-blue-400 mb-8 transition duration-350 ease-in-out"
     >
       <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
@@ -119,7 +119,7 @@
       >
     </a>
 
-    <a href="#" 
+    <a href="{{ route('settings') }}" 
       class="flex items-center justify-center xl:justify-start text-gray-800 dark:text-white hover:text-blue-400 dark:hover:text-blue-400 mb-8 transition duration-350 ease-in-out"
     >
       <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
@@ -132,7 +132,7 @@
           ></path>
         </g>
       </svg>
-      <span class="hidden xl:block ml-4 font-bold text-md">More</span>
+      <span class="hidden xl:block ml-4 font-bold text-md">Settings</span>
     </a>
 
     <a
