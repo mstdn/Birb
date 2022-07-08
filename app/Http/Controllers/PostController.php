@@ -12,7 +12,7 @@ class PostController extends Controller
     // Home feed
     public function index() {
         return view('posts.index', [
-            'posts' => Post::latest('created_at')->filter(request(['search', 'user']))->get()
+            'posts' => Post::latest('created_at')->filter(request(['search', 'user', 'username']))->get()
         ]);
     }
     public function show(Post $post, User $user) {

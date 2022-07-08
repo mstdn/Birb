@@ -114,8 +114,6 @@ class="border-b border-gray-200 dark:border-dim-200 pb-4 border-l border-r"
     </svg>
   </a>
 
-  <img id="preview-image-before-upload" src="" alt="" style="max-height: 250px;">
-
   <button type="submit"
     class="bg-blue-400 hover:bg-blue-500 text-white rounded-full py-1 px-4 ml-auto mr-1"
   >

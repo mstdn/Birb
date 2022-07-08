@@ -25,6 +25,12 @@ class Post extends Model
             $query
                 ->whereHas('user', fn ($query) =>
                 $query->where('username', $user)));
+
+        // Search for username per post
+        $query->when($filters['username'] ?? false, fn($query, $username) =>
+        $query
+            ->whereHas('user', fn ($query) =>
+            $query->where('username', $username)));
     }
 
     // Relation to User
