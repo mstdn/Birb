@@ -32,7 +32,12 @@ Route::get('@{user:username}', [UserController::class, 'show']);
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('settings', [UserController::class, 'settings'])->name('settings');
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/', [UserController::class, 'settings'])->name('settings');
+        Route::get('account', [UserController::class, 'settingsAccount'])->name('settings-account');
+        Route::get('profile', [UserController::class, 'settingsprofile'])->name('settings-profile');
+        Route::post('profile/update', [UserController::class, 'updateProfile'])->name('settings-profile-update');
+    });
     // Logout
     Route::post('logout', [UserController::class, 'logout'])->name('logout');
 });

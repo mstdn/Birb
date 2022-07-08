@@ -67,7 +67,7 @@
           >
             <!-- Title -->
             <h2 class="text-gray-800 dark:text-gray-100 font-bold font-sm">
-              {{ $user->username }}
+              Settings
             </h2>
             <!-- /Title -->
 

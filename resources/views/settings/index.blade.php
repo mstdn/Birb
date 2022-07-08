@@ -3,44 +3,10 @@
 @section('content')
 <!-- Profile -->
 <div
-class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 py-2 border-l border-r"
+class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 pt-2 border-l border-r"
 >
-<div
-  class="flex flex-col items-center justify-center text-center p-6 bg-white dark:bg-dim-900 border-b border-t border-gray-200 dark:border-dim-200 hover:bg-gray-50 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out text-blue-400 text-sm"
->
-<img class="inline-block h-16 w-16 rounded-full" src="{{asset(auth()->user()->avatar)}}" alt="" />
-  <h1 class="dark:text-white text-gray-900 text-2xl font-bold mb-2">
-    {{ auth()->user()->username }}
-  </h1>
-  <p class="text-gray-500 mb-5">
-    {{ auth()->user()->bio }}
-  </p>
-  <a
-    href="javascript:void(0)"
-    onclick="document.querySelector('html').classList.toggle('dark')"
-    class="mx-auto w-11 h-11 xl:w-48 flex items-center justify-center bg-blue-400 hover:bg-blue-500 py-3 rounded-full text-white font-bold font-sm transition duration-350 ease-in-out"
-  >
-    <svg
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      class="block xl:hidden h-6 w-6"
-    >
-      <g>
-        <path
-          d="M15.692 11.205l6.383-7.216c.45-.45.45-1.18 0-1.628-.45-.45-1.178-.45-1.627 0l-7.232 6.402s.782.106 1.595.93c.548.558.882 1.51.882 1.51z"
-        ></path>
-        <path
-          d="M17.45 22.28H3.673c-1.148 0-2.083-.946-2.083-2.11V7.926c0-1.165.934-2.112 2.082-2.112h5.836c.414 0 .75.336.75.75s-.336.75-.75.75H3.672c-.32 0-.583.274-.583.612V20.17c0 .336.26.61.582.61h13.78c.32 0 .583-.273.583-.61v-6.28c0-.415.336-.75.75-.75s.75.335.75.75v6.28c0 1.163-.934 2.11-2.084 2.11z"
-        ></path>
-      </g>
-    </svg>
-    <span class="hidden xl:block font-bold text-md"
-      >Edit stuff</span
-    >
-  </a>
-</div>
 
-
+@include('settings.top')
 
 
 <h1
@@ -50,6 +16,7 @@ class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 p
     </h1>
 
     <!-- Setting item -->
+    <a href="{{ route('settings-account') }}">
     <div
       class="text-blue-400 text-sm font-normal p-3 border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out"
     >
@@ -58,9 +25,11 @@ class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 p
       </h2>
       <p class="text-xs text-gray-400">Change your email</p>
     </div>
+    </a>
     <!-- /Setting item -->
 
     <!-- Setting item -->
+    <a href="{{ route('settings-profile') }}">
     <div
       class="text-blue-400 text-sm font-normal p-3 border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out"
     >
@@ -69,6 +38,7 @@ class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 p
       </h2>
       <p class="text-xs text-gray-400">Displayname and bio settings</p>
     </div>
+    </a>
     <!-- /Setting item -->
 
      <!-- Setting item -->
@@ -93,41 +63,55 @@ class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 p
     </div>
     <!-- /Setting item -->
 
-    <div
-  class="flex flex-col items-center justify-center text-center p-6 bg-white dark:bg-dim-900 border-b border-t border-gray-200 dark:border-dim-200 hover:bg-gray-50 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out text-blue-400 text-sm"
->
-  <h1 class="dark:text-white text-gray-900 text-2xl font-bold mb-2">
-    Customize your view
-  </h1>
-  <p class="text-gray-500 mb-5">
-    Manage your font size, color and background. These settings
-    affect all the Twitter accounts on this browser.
-  </p>
-  <a
-    href="javascript:void(0)"
-    onclick="document.querySelector('html').classList.toggle('dark')"
-    class="mx-auto w-11 h-11 xl:w-48 flex items-center justify-center bg-blue-400 hover:bg-blue-500 py-3 rounded-full text-white font-bold font-sm transition duration-350 ease-in-out"
-  >
-    <svg
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      class="block xl:hidden h-6 w-6"
+    <h1
+      class="text-gray-900 dark:text-white text-md font-bold p-3 border-b border-gray-200 dark:border-dim-200"
     >
-      <g>
-        <path
-          d="M15.692 11.205l6.383-7.216c.45-.45.45-1.18 0-1.628-.45-.45-1.178-.45-1.627 0l-7.232 6.402s.782.106 1.595.93c.548.558.882 1.51.882 1.51z"
-        ></path>
-        <path
-          d="M17.45 22.28H3.673c-1.148 0-2.083-.946-2.083-2.11V7.926c0-1.165.934-2.112 2.082-2.112h5.836c.414 0 .75.336.75.75s-.336.75-.75.75H3.672c-.32 0-.583.274-.583.612V20.17c0 .336.26.61.582.61h13.78c.32 0 .583-.273.583-.61v-6.28c0-.415.336-.75.75-.75s.75.335.75.75v6.28c0 1.163-.934 2.11-2.084 2.11z"
-        ></path>
-      </g>
-    </svg>
-    <span class="hidden xl:block font-bold text-md"
-      >Toggle Dark Mode</span
-    >
-  </a>
-</div>
+      More
+    </h1>
 
+     <!-- Setting item -->
+     <div
+     class="text-blue-400 text-sm font-normal p-3 border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out"
+   >
+     <h2 class="font-bold text-md text-gray-800 dark:text-white">
+       Privacy Policy
+     </h2>
+     <p class="text-xs text-gray-400">How we handle shit</p>
+   </div>
+   <!-- /Setting item -->
+
+    <!-- Setting item -->
+    <div
+      class="text-blue-400 text-sm font-normal p-3 border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out"
+    >
+      <h2 class="font-bold text-md text-gray-800 dark:text-white">
+        Terms of Service
+      </h2>
+      <p class="text-xs text-gray-400">How you need to handle shit</p>
+    </div>
+    <!-- /Setting item -->
+
+     <!-- Setting item -->
+     <div
+     class="text-blue-400 text-sm font-normal p-3 border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out"
+   >
+     <h2 class="font-bold text-md text-gray-800 dark:text-white">
+       Guidelines
+     </h2>
+     <p class="text-xs text-gray-400">What to do, what to do</p>
+   </div>
+   <!-- /Setting item -->
+
+    <!-- Setting item -->
+    <div
+      class="text-blue-400 text-sm font-normal p-3 border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out"
+    >
+      <h2 class="font-bold text-md text-gray-800 dark:text-white">
+        Source code
+      </h2>
+      <p class="text-xs text-gray-400">Setup your own crappy server</p>
+    </div>
+    <!-- /Setting item -->
 
 </div>
 <!-- /Timeline Notification -->
