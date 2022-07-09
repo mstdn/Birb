@@ -47,8 +47,7 @@ class="border-b border-gray-200 dark:border-dim-200 pb-4 border-l border-r"
   <input name="media" id="upload_link" type="file" class="hidden"/>
   <!-- /image -->
 
-  <a
-    href="#"
+  <label for="gif"
     class="text-blue-400 hover:bg-blue-50 dark:hover:bg-dim-800 rounded-full p-2"
   >
     <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -61,7 +60,8 @@ class="border-b border-gray-200 dark:border-dim-200 pb-4 border-l border-r"
         ></path>
       </g>
     </svg>
-  </a>
+  </label>
+  <input name="gif" id="gif" type="file" class="hidden"/>
 
   <a
     href="#"

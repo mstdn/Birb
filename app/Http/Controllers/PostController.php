@@ -24,14 +24,17 @@ class PostController extends Controller
     public function store(Request $request) {
         // Validate form fields
         $formFields = $request->validate([
-            'status' => 'required',
-            'media' => ['nullable','mimes:mp4,mov,jpg,jpeg,png,gif','max:500048'],
+            'status' => 'required|min:1|max:500',
+            'media' => ['nullable','mimes:mp4,mov,jpg,jpeg,png','max:500048'],
+            'gif' => ['nullable','mimes:gif','max:500048'],
         ]);
 
         if($request->hasFile('media')) {
             $formFields['media'] = $request->file('media')->store('media', 'public');
         }
-
+        if($request->hasFile('gif')) {
+            $formFields['media'] = $request->file('gif')->store('media', 'public');
+        }
         // Get user_id from auth
         $formFields['user_id'] = auth()->id();
 

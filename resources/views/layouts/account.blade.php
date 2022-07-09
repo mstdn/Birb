@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @include('layouts.header-scripts')
 </head>
 <body class="bg-white dark:bg-dim-900">
     <div class="container mx-auto h-screen">

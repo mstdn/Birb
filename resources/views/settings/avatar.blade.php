@@ -24,17 +24,18 @@ class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 p
       <h1 class="text-gray-900 dark:text-white text-md font-bold p-3 border-b border-gray-200 dark:border-dim-200">
       Avatar upload</h1>
         <div class="relative m-2">
-            
-            <label class="w-64 flex flex-col items-center text-white px-4 py-6 text-blue bg-blue-400 hover:bg-blue-500 rounded-lg shadow-lg tracking-wide uppercase border border-blue-600 cursor-pointer">
-                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+            <label for="dropzone-file" class="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center rounded-xl border-2 border-dashed border-blue-400 bg-white p-6 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
-                <span class="mt-2 text-base leading-normal">Select a file</span>
-                <input type='file' name="avatar" class="hidden" />
-                @error('avatar')
-                    <p class="class="text-red-500">{{ $message }}</p>
-                @enderror
-            </label>
+            
+                <h2 class="mt-4 text-xl font-medium text-gray-700 tracking-wide">Upload avatar</h2>
+            
+                <p class="mt-2 text-gray-500 tracking-wide">Upload or darg & drop your file SVG, PNG, JPG or GIF. </p>
+            
+                <input id="dropzone-file" name="avatar" type="file" class="hidden" />
+              </section>
+
           </div>
           <br />
           <button type="submit" class="mx-auto w-11 h-11 xl:w-auto flex items-center justify-center bg-blue-400 hover:bg-blue-500 p-3 rounded-full text-white font-bold font-sm transition duration-350 ease-in-out mb-10">
@@ -50,7 +51,7 @@ class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 p
             <span class="hidden xl:block font-bold text-md">Save</span>
           </button>
         </form>
-        <form method="POST" action="{{ route('settings-cover-update') }}">
+        <form method="POST" action="{{ route('settings-cover-update') }}" enctype="multipart/form-data" class="dropzone" id="my-awesome-dropzone">
             @csrf
           <h1 class="text-gray-900 dark:text-white text-md font-bold p-3 border-b border-gray-200 dark:border-dim-200">
             Banner upload</h1>

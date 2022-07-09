@@ -1,4 +1,4 @@
-<form method="GET" action="/home">
+<form method="GET" action="/">
 <!-- Search -->
 <div class="relative m-2">
     <div
