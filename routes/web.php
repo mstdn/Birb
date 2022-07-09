@@ -20,7 +20,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::group(['middleware' => 'guest'], function() {
-    Route::get('/', [HomeController::class, 'index'])->name('landing');
+    Route::get('/', [PostController::class, 'index'])->name('landing');
 });
 
 Route::get('/home', [PostController::class, 'index'])->name('home');

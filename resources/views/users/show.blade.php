@@ -7,6 +7,19 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
 >
 <div class="flex flex-shrink-0 p-4 pb-0">
   <a href="" class="flex-shrink-0 group block">
+    <div class="m-auto my-28 w-96 max-w-lg items-center justify-center overflow-hidden rounded-2xl bg-slate-200 shadow-xl">
+      <div class="h-24 bg-white"></div>
+      <div class="-mt-20 flex justify-center">
+        <img class="h-32 rounded-full" src="https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255?k=20&m=522855255&s=612x612&w=0&h=fLLvwEbgOmSzk1_jQ0MgDATEVcVOh_kqEe0rqi7aM5A=" />
+      </div>
+      <div class="mt-5 mb-1 px-3 text-center text-lg">Your Name</div>
+      <div class="mb-5 px-3 text-center text-sky-500">Title</div>
+      <blockquote>
+        <p class="mx-2 mb-7 text-center text-base">Bio</p>
+      </blockquote>
+    </div>
+
+
     <div class="flex items-top">
       <div>
         <a href="/{{$post->user->username}}">
