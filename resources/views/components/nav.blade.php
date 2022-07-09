@@ -152,7 +152,7 @@
     </a>
     @else
     <a
-      href="/"
+      href="{{ route('login') }}"
       class="mx-auto w-11 h-11 xl:w-auto flex items-center justify-center bg-blue-400 hover:bg-blue-500 py-3 rounded-full text-white font-bold font-sm transition duration-350 ease-in-out mb-10"
     >
       <svg

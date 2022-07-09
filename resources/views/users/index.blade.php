@@ -60,7 +60,7 @@ class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 p
 <!-- /No posts -->
 @endif
       
-@foreach($posts as $post)
+@foreach($posts->reverse() as $post)
 <x-post-card :post="$post" />
 @endforeach 
 
