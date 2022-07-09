@@ -147,5 +147,6 @@
     </div>
     <script src="{{ asset('/js/app.js') }}"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
   </body>
 </html>

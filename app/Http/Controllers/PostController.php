@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -43,6 +44,14 @@ class PostController extends Controller
 
         // Return after success
         return back()->with('message', 'Post published!');
+    }
+    public function destroy(Post $post) {
+        if (! Gate::allows('delete-post', $post)) {
+            abort(403);
+        }
+ 
+        $post->delete();
+        return redirect('/home')->with('message', 'Post deleted successfully');
     }
     
 }

@@ -32,7 +32,7 @@
             @yield('content')
 
     </div>
-
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
 </body>
 </html>

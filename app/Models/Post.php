@@ -17,8 +17,9 @@ class Post extends Model
     {
         // Search for status
         $query->when($filters['search'] ?? false, fn($query, $search) =>
-            $query
-                ->where('status', 'like', '%' . $search . '%'));
+            $query->where(fn($query) =>
+                $query->where('status', 'like', '%' . $search . '%')
+        ));
 
         // Search for username per post
         $query->when($filters['user'] ?? false, fn($query, $user) =>
