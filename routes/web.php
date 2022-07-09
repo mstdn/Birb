@@ -37,6 +37,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('account', [UserController::class, 'settingsAccount'])->name('settings-account');
         Route::get('profile', [UserController::class, 'settingsprofile'])->name('settings-profile');
         Route::post('profile/update', [UserController::class, 'updateProfile'])->name('settings-profile-update');
+        Route::get('avatar', [UserController::class, 'settingsAvatar'])->name('settings-avatar');
+        Route::post('avatar/update', [UserController::class, 'updateAvatar'])->name('settings-avatar-update');
+        Route::post('cover/update', [UserController::class, 'updateCover'])->name('settings-cover-update');
     });
     // Logout
     Route::post('logout', [UserController::class, 'logout'])->name('logout');

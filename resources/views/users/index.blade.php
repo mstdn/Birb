@@ -9,7 +9,7 @@ class="border-b border-gray-200 dark:border-dim-200 bg-gray-50 dark:bg-dim-300 p
 <div
   class="flex flex-col items-center justify-center text-center p-6 bg-white dark:bg-dim-900 border-b border-t border-gray-200 dark:border-dim-200 hover:bg-gray-50 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out text-blue-400 text-sm"
 >
-<img class="inline-block h-16 w-16 rounded-full" src="{{asset($user->avatar)}}" alt="" />
+<img class="inline-block h-16 w-16 rounded-full" src="{{asset('storage/' . $user->avatar)}}" alt="" />
   <h1 class="dark:text-white text-gray-900 text-2xl font-bold mb-2">
     {{ $user->username }}
   </h1>

@@ -16,7 +16,7 @@ class="border-b border-gray-200 dark:border-dim-200 pb-4 border-l border-r"
   <div class="w-12 flex items-top">
     <img
       class="inline-block h-10 w-10 rounded-full"
-      src="{{asset(Auth()->user()->avatar)}}"
+      src="{{asset('storage/' . Auth()->user()->avatar)}}"
       alt=""
     />
   </div>

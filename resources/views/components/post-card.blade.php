@@ -11,7 +11,7 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
       <div>
         <a href="{{'@' . $post->user->username}}"><img
           class="inline-block h-9 w-9 rounded-full"
-          src="{{$post->user->avatar}}"
+          src="{{asset('storage/' . $post->user->avatar)}}"
           alt=""
         /></a>
       </div>

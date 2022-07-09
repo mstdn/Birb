@@ -4,7 +4,7 @@
     <div class="flex flex-row">
     <img
         class="w-10 h-10 rounded-full"
-        src="{{asset(auth()->user()->avatar)}}"
+        src="{{asset('storage/' . auth()->user()->avatar)}}"
         alt="{{auth()->user()->name}}"
     />
     <div class="hidden xl:block flex flex-col ml-2">

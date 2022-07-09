@@ -89,7 +89,12 @@ class UserController extends Controller
         ]);
         return back()->with('status', 'Profile updated.');
     }
-
+    // User avatar settings
+    public function settingsAvatar(User $user) {
+        return view('settings.avatar', [
+            'user' => $user
+        ]);
+    }
     // Update avatar
     public function updateAvatar(Request $request) {
         // Validate fields
