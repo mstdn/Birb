@@ -79,6 +79,7 @@
             @yield('content')
         </main>
     </div>
+    <x-flash-message />
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 </body>
 </html>

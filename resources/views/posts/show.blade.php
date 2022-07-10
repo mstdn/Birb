@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.post')
 
 @section('content')
 <!-- Tweet -->
@@ -37,7 +37,7 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
           <span
             class="ml-1 text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150"
           >
-          <a href="/{{'@' . $post->user->username}}">{{$post->user->username}}</a> . <a href="/posts/{{$post->id}}">{{$post->created_at}}</a>
+          <a href="/{{'@' . $post->user->username}}">{{$post->user->username}}</a> . <a href="/posts/{{$post->id}}">{{$post->created_at->diffForHumans()}}</a>
           </span>
         </p>
       </div>
@@ -68,9 +68,11 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
   <div class="flex">
     <div class="w-full">
       <div class="flex items-center">
-        <div
+        
+        <div x-data="{id: 1}"
           class="flex-1 flex items-center text-gray-800 dark:text-white text-xs text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition duration-350 ease-in-out"
         >
+        <button @click="$dispatch('open-dropdown',{id})">
           <svg
             viewBox="0 0 24 24"
             fill="currentColor"
@@ -82,8 +84,10 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
               ></path>
             </g>
           </svg>
+        </button>
           0
         </div>
+        
         <div
           class="flex-1 flex items-center text-gray-800 dark:text-white text-xs text-gray-400 hover:text-green-400 dark:hover:text-green-400 transition duration-350 ease-in-out"
         >
@@ -163,4 +167,16 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
 </div>
 </div>
 <!-- /Tweet -->
+<div x-data="{ open: false }"
+x-show="open"
+@open-dropdown.window="if ($event.detail.id == 1) open = true"
+@click.away="open = false">
+@include('components.reply')
+</div>
+
+
+@foreach ($post->comments as $comment)
+<x-post-comment :comment="$comment"/>
+@endforeach
+
 @endsection

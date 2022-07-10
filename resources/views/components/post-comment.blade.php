@@ -1,26 +1,25 @@
-@props(['post'])
-
-<x-card>
+@props(['comment'])
 <!-- Tweet -->
 <div
 class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out pb-4 border-l border-r"
 >
-
 <div class="flex flex-shrink-0 p-4 pb-0">
   <a href="" class="flex-shrink-0 group block">
     <div class="flex items-top">
       <div>
-        <a href="{{'@' . $post->user->username}}"><img
+        <a href="/{{'@' . $comment->user->username}}">
+        <img
           class="inline-block h-9 w-9 rounded-full"
-          src="{{asset('storage/' . $post->user->avatar)}}"
+          src="{{asset('storage/' . $comment->user->avatar)}}"
           alt=""
-        /></a>
+        />
+        </a>
       </div>
       <div class="ml-3">
         <p
           class="flex items-center text-base leading-6 font-medium text-gray-800 dark:text-white"
         >
-        <a href="{{'@' . $post->user->username}}">{{$post->user->name}}</a>
+        <a href="/{{'@' . $comment->user->username }}">{{$comment->user->name}}</a>
           <svg
             viewBox="0 0 24 24"
             aria-label="Verified account"
@@ -36,7 +35,7 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
           <span
             class="ml-1 text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150"
           >
-          <a href="{{'@' . $post->user->username}}">{{$post->user->username}}</a> . <a href="/posts/{{$post->id}}">{{$post->created_at->diffForHumans()}}</a>
+          <a href="/{{'@' . $comment->user->username}}">{{$comment->user->username}}</a> . <a href="/posts/{{$comment->post->id}}">{{$comment->created_at->diffForHumans()}}</a>
           </span>
         </p>
       </div>
@@ -44,37 +43,32 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
   </a>
 </div>
 <div class="pl-16">
-  <a href="/posts/{{$post->id}}">
+  <a href="/posts/{{$comment->post->id}}">
   <p
     class="text-base width-auto font-medium text-gray-800 dark:text-white flex-shrink"
   >
-    {{$post->status}}
+    {{$comment->comment}}
   </p>
   </a>
-  @if($post->media == 0)
+  @if($comment->media == 0)
   <br />
   @else
   <div class="flex my-3 mr-2 rounded-2xl border border-gray-600">
-    <a href="/posts/{{$post->id}}">
     <img
       class="rounded-2xl"
-      src="{{asset('storage/' . $post->media)}}"
+      src="{{asset('storage/' . $comment->media)}}"
       alt=""
       width="100%"
-      height="100%"
     />
-    </a>
   </div>
   @endif
 
   <div class="flex">
     <div class="w-full">
       <div class="flex items-center">
-
-        <div x-data="{id: 1}"
+        <div
           class="flex-1 flex items-center text-gray-800 dark:text-white text-xs text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition duration-350 ease-in-out"
         >
-        <button @click="$dispatch('open-dropdown',{id})">
           <svg
             viewBox="0 0 24 24"
             fill="currentColor"
@@ -86,10 +80,8 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
               ></path>
             </g>
           </svg>
-        </button>
           0
         </div>
-
         <div
           class="flex-1 flex items-center text-gray-800 dark:text-white text-xs text-gray-400 hover:text-green-400 dark:hover:text-green-400 transition duration-350 ease-in-out"
         >
@@ -106,7 +98,6 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
           </svg>
           0
         </div>
-
         <div
           class="flex-1 flex items-center text-gray-800 dark:text-white text-xs text-gray-400 hover:text-red-600 dark:hover:text-red-600 transition duration-350 ease-in-out"
         >
@@ -147,17 +138,17 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
         <div id="dropdownTop" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700">
           <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
             <li>
-              <a href="/posts/{{ $post->id }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Open post</a>
+              <a href="/posts/{{ $comment->post->id }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Open post</a>
             </li>
             <li>
-              <a href="/{{ '@' . $post->user->username }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Open profile</a>
+              <a href="/{{ '@' . $comment->user->username }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Open profile</a>
             </li>
-            @can('delete-post', $post)
-            <form method="POST" action="/posts/{{$post->id}}">
+            @can('delete-post', $comment->post)
+            <form method="POST" action="/posts/{{$comment->post->id}}">
             @csrf
             @method('DELETE')
             <li>
-              <button class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete post</button>
+              <button class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete birb</button>
             </li>
             </form>
             @endcan
@@ -170,10 +161,3 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
 </div>
 </div>
 <!-- /Tweet -->
-<div x-data="{ open: false }"
-x-show="open"
-@open-dropdown.window="if ($event.detail.id == 1) open = true"
-@click.away="open = false">
-@include('components.reply')
-</div>
-</x-card>

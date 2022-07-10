@@ -24,6 +24,7 @@
 </head>
 <body class="bg-white dark:bg-dim-900">
     <div class="container mx-auto h-screen">
+      
       <div class="flex flex-row justify-center">
         <!-- Left -->
         <div class="w-68 xs:w-88 xl:w-275 h-screen">
@@ -146,7 +147,9 @@
         </div>
         <!-- /Right -->
       </div>
+      <x-flash-message />
     </div>
+    
     <script src="{{ asset('/js/app.js') }}"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\ViewErrorBag;
 
 class UserController extends Controller
 {
@@ -75,6 +75,7 @@ class UserController extends Controller
     }
     // Update display name, bio and website
     public function updateProfile(Request $request) {
+
         // Validate fields
         $request->validate([
             'name' => 'nullable|max:30',

@@ -30,8 +30,9 @@
         <div class="min-h-1/2 c  border border-gray-900 rounded-2xl">
 
             @yield('content')
-
+            <x-flash-message />
     </div>
+    
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
 </body>

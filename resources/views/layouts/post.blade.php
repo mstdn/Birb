@@ -68,7 +68,7 @@
           >
             <!-- Title -->
             <h2 class="text-gray-800 dark:text-gray-100 font-bold font-sm">
-              {{ $user->username }}
+              {{ $post->user->username }}'s post
             </h2>
             <!-- /Title -->
 
@@ -100,11 +100,7 @@
           @yield('content')
           <!-- /Tweet -->
 
-          @auth
-          <!-- Post Tweet -->
-          @include('posts.create')
-          <!-- /Post Tweet -->
-          @endauth
+
 
           <!-- Timeline Notification -->
           
