@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
     protected $fillable = ['status', 'visibility', 'user_id', 'media', 'nsfw' ];
     // Also load x table related to
-    protected $with = ['user'];
+    protected $with = ['user', 'comments'];
 
     // Search function
     public function scopeFilter($query, array $filters)

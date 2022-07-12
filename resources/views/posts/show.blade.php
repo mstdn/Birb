@@ -167,13 +167,14 @@ class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover
 </div>
 </div>
 <!-- /Tweet -->
+@auth
 <div x-data="{ open: false }"
 x-show="open"
 @open-dropdown.window="if ($event.detail.id == 1) open = true"
 @click.away="open = false">
 @include('components.reply')
 </div>
-
+@endauth
 
 @foreach ($post->comments as $comment)
 <x-post-comment :comment="$comment"/>

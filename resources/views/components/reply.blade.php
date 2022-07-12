@@ -1,3 +1,4 @@
+@auth
 <!-- Post Tweet -->
 <form method="POST" action="/posts/{{$post->id}}/reply" enctype="multipart/form-data">
     @csrf
@@ -124,3 +125,4 @@
     </div>
     <!-- /Post Tweet -->
     </form>
+    @endauth
