@@ -11,13 +11,24 @@ use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
-    // Home feed
-    public function index() {
+    // User /home timeline
+    public function index(User $user)
+    {
+        return view('posts.index', [
+            'posts' => auth()
+            ->user()
+            ->timeline(),
+        ]);
+    }
+    // Public feed
+    public function public() 
+    {
         return view('posts.index', [
             'posts' => Post::latest('created_at')->filter(request(['search', 'user', 'username']))->get()
         ]);
     }
-    public function show(Post $post, User $user) {
+    public function show(Post $post, User $user) 
+    {
         return view('posts.show', [
             'post' => $post,
             'user' => $user

@@ -1,5 +1,6 @@
 <!-- Nav -->
 <nav class="mt-5">
+  @auth
     <a
       href="/home"
       class="{{ (request()->is('/home')) ? 'flex items-center justify-center xl:justify-start text-blue-400 mb-8 transition duration-350 ease-in-out' : 'flex items-center justify-center xl:justify-start text-gray-800 dark:text-white hover:text-blue-400 dark:hover:text-blue-400 mb-8 transition duration-350 ease-in-out' }}"
@@ -14,6 +15,22 @@
       </svg>
       <span class="hidden xl:block ml-4 font-bold text-md">Home</span>
     </a>
+    @else
+    <a
+      href="/"
+      class="{{ (request()->is('/*')) ? 'flex items-center justify-center xl:justify-start text-blue-400 mb-8 transition duration-350 ease-in-out' : 'flex items-center justify-center xl:justify-start text-gray-800 dark:text-white hover:text-blue-400 dark:hover:text-blue-400 mb-8 transition duration-350 ease-in-out' }}"
+    >
+      <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M22.58 7.35L12.475 1.897c-.297-.16-.654-.16-.95 0L1.425 7.35c-.486.264-.667.87-.405 1.356.18.335.525.525.88.525.16 0 .324-.038.475-.12l.734-.396 1.59 11.25c.216 1.214 1.31 2.062 2.66 2.062h9.282c1.35 0 2.444-.848 2.662-2.088l1.588-11.225.737.398c.485.263 1.092.082 1.354-.404.263-.486.08-1.093-.404-1.355zM12 15.435c-1.795 0-3.25-1.455-3.25-3.25s1.455-3.25 3.25-3.25 3.25 1.455 3.25 3.25-1.455 3.25-3.25 3.25z"
+        ></path>
+      </svg>
+      <span class="hidden xl:block ml-4 font-bold text-md">Home</span>
+    </a>
+    @endauth
 
     <a
       href="#"
@@ -104,7 +121,7 @@
 
     <a
       href="/{{ '@' . auth()->user()->username }}"
-      class="flex items-center justify-center xl:justify-start text-gray-800 dark:text-white hover:text-blue-400 dark:hover:text-blue-400 mb-8 transition duration-350 ease-in-out"
+      class="{{ (request()->is('@*')) ? 'flex items-center justify-center xl:justify-start text-blue-400 mb-8 transition duration-350 ease-in-out' : 'flex items-center justify-center xl:justify-start text-gray-800 dark:text-white hover:text-blue-400 dark:hover:text-blue-400 mb-8 transition duration-350 ease-in-out' }}"
     >
       <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
         <path
@@ -120,7 +137,7 @@
     </a>
 
     <a href="{{ route('settings') }}" 
-      class="flex items-center justify-center xl:justify-start text-gray-800 dark:text-white hover:text-blue-400 dark:hover:text-blue-400 mb-8 transition duration-350 ease-in-out"
+    class="{{ (request()->is('settings*')) ? 'flex items-center justify-center xl:justify-start text-blue-400 mb-8 transition duration-350 ease-in-out' : 'flex items-center justify-center xl:justify-start text-gray-800 dark:text-white hover:text-blue-400 dark:hover:text-blue-400 mb-8 transition duration-350 ease-in-out' }}"
     >
       <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
         <g>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\PostCommentsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -8,9 +9,9 @@ use App\Http\Controllers\UserController;
 
 
 Route::group(['middleware' => 'guest'], function() {
-    Route::get('/', [PostController::class, 'index'])->name('landing');
+    Route::get('/', [PostController::class, 'public'])->name('landing');
 });
-Route::get('/home', [PostController::class, 'index'])->name('home');
+
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('post');
 Route::post('/post/create', [PostController::class, 'store'])->name('create-post');
 Route::delete('posts/{post}', [PostController::class, 'destroy']);
@@ -18,6 +19,10 @@ Route::post('posts/{post}/reply', [PostCommentsController::class, 'store'])->nam
 Route::get('@{user:username}', [UserController::class, 'show']);
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', [PostController::class, 'index'])->name('home');
+    Route::post('/posts/{post}/like', [PostLikesController::class, 'store']);
+    Route::delete('/posts/{post}/like', [PostLikesController::class, 'destroy']);
+    Route::post('@{user:username}/follow', [FollowsController::class, 'store'])->name('follow');
     Route::group(['prefix' => 'settings'], function () {
         Route::get('/', [UserController::class, 'settings'])->name('settings');
         Route::get('account', [UserController::class, 'settingsAccount'])->name('settings-account');

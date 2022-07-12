@@ -15,16 +15,16 @@
                   <div class="flex flex-row">
                     <img
                       class="w-10 h-10 rounded-full"
-                      src="https://pbs.twimg.com/profile_images/1308769664240160770/AfgzWVE7_normal.jpg"
-                      alt="Joe Biden"
+                      src="https://birb.social/storage/uploads/avatars/GsFN8pdeOY4qJXmBTUC4jEckxiKv3l729OhKzF1U.jpg"
+                      alt="@stux"
                     />
                     <div class="flex flex-col ml-2">
                       <h1
                         class="text-gray-900 dark:text-white font-bold text-sm"
                       >
-                        Washy
+                        stux
                       </h1>
-                      <p class="text-gray-400 text-sm">@JoeBiden</p>
+                      <p class="text-gray-400 text-sm">@stux</p>
                     </div>
                   </div>
                   <div class="">
@@ -32,7 +32,7 @@
                       class="flex items-center h-full text-gray-800 dark:text-white"
                     >
                       <a
-                        href="#"
+                        href="/@stux"
                         class="text-xs font-bold text-blue-400 px-4 py-1 rounded-full border-2 border-blue-400"
                         >Follow</a
                       >

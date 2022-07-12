@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Likable;
 
 class Post extends Model
 {
+    use Likable;
     use HasFactory;
+
     protected $fillable = ['status', 'visibility', 'user_id', 'media', 'nsfw' ];
     // Also load x table related to
-    protected $with = ['user', 'comments'];
+    protected $with = ['user', 'comments', 'likes'];
 
     // Search function
     public function scopeFilter($query, array $filters)
@@ -35,10 +38,18 @@ class Post extends Model
     }
 
     // Relation to User
-    public function user() {
+    public function user() 
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function comments() {
+    // Relation to comments
+    public function comments() 
+    {
         return $this->hasMany(Comment::class);
+    }
+    // Relation to tags
+    public function tags() 
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }
